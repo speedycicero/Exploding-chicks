@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { io, Socket } from 'socket.io-client';
 import type { Card, ClientGameState } from './cards';
 
-const socket: Socket = io('http://localhost:3001');
+const socket: Socket = io(import.meta.env.VITE_SERVER_URL || 'http://localhost:3001');
 
 // Maps each card type to its (col, row) position on the 4x4 card sheet
 const CARD_SPRITES: Record<string, { col: number; row: number; bg1: string; bg2: string }> = {
